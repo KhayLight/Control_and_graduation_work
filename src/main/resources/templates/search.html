@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container my-2">
+    <h1>Film List</h1>
+
+
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Film Name</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th>Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(films)}">
+            <td colspan="7">No Records found. Add some...!</td>
+        </tr>
+        <tr th:each="film : ${films}">
+            <td th:text="${film.filmName}"></td>
+            <td th:text="${film.description}"></td>
+            <td th:text="${film.rating}"></td>
+            <td th:text="${film.year}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+    </p>
+    <p>
+
+        <div>
+            <input type="radio" id="huey" name="xmlOrCsv" value="0"
+            >
+            <label for="huey">XML</label>
+        </div>
+
+
+        <div>
+            <input type="radio" id="huey1" name="xmlOrCsv" value="1" checked>
+            <label for="huey1">CSV</label>
+        </div>
+
+
+
+        <input type="text" id="email">
+    <a  class="btn btn-danger mx-auto" onclick="func()">
+
+
+Отправить
+    </a>
+
+<script>
+    function func(){
+        var email  = document.getElementById("email").value;
+        var ii = document.querySelector('input[name="xmlOrCsv"]:checked').value;
+
+
+        window.location.href=window.location.href+"&send="+email+"&xmlOrCsv="+ii;
+
+    }
+</script>
+    </p>
+</div>
+</body>
+
+</html>

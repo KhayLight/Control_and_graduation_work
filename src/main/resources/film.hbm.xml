@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.example.contro_and_graduation_work.model">
+
+    <class name="Film" table="film">
+        <meta attribute="class-description">
+            This class contains the film detail.
+        </meta>
+        <id name="id" type="java.lang.Long" column="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="description" column="description" type="java.lang.String" />
+        <property name="filmId" column="film_id" type="java.lang.Integer" />
+        <property name="filmName" column="film_name" type="java.lang.String" />
+        <property name="rating" column="rating" type="java.lang.Double" />
+        <property name="year" column="year" type="java.lang.Integer" />
+
+
+    </class>
+</hibernate-mapping>
