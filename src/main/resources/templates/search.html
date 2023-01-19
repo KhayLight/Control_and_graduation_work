@@ -42,14 +42,14 @@
     <p>
 
         <div>
-            <input type="radio" id="huey" name="xmlOrCsv" value="0"
+            <input type="radio" id="huey" name="xmlOrCsv" value="XML"
             >
             <label for="huey">XML</label>
         </div>
 
 
         <div>
-            <input type="radio" id="huey1" name="xmlOrCsv" value="1" checked>
+            <input type="radio" id="huey1" name="xmlOrCsv" value="CSV" checked>
             <label for="huey1">CSV</label>
         </div>
 
@@ -67,8 +67,8 @@
         var email  = document.getElementById("email").value;
         var ii = document.querySelector('input[name="xmlOrCsv"]:checked').value;
 
-
-        window.location.href=window.location.href+"&send="+email+"&xmlOrCsv="+ii;
+        //console.log(ii)
+        window.location.href=window.location.origin+"/send"+window.location.search+"&email="+email+"&xmlOrCsv="+ii;
 
     }
 </script>

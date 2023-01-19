@@ -1,15 +1,14 @@
 package com.example.contro_and_graduation_work.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.util.List;
 
-@Setter
-@Getter
-@ToString
+@Data
 @Entity
 @NoArgsConstructor
 @Table(name = "film")
@@ -17,17 +16,20 @@ public class Film implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-
-
     @Column(name = "film_id")
+    @JsonProperty("kinopoiskId")
     private Integer filmId;
-    @Column(name = "film_name")
+    @Column(name = "filmName")
+    @JsonProperty("nameRu")
     private String filmName;
     @Column(name = "year")
+    @JsonProperty("year")
     private Integer year;
     @Column(name = "rating")
+    @JsonProperty("ratingKinopoisk")
     private Double rating;
     @Column(name = "description")
+    @JsonProperty("description")
     private String description;
 
 
@@ -42,19 +44,16 @@ public class Film implements Serializable {
     }
 
 
-    public JSONObject jsonObject(){
+    public JSONObject jsonObject() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id",id);
-        jsonObject.put("filmId",filmId);
-        jsonObject.put("filmName",id);
-        jsonObject.put("year",year);
-        jsonObject.put("rating",rating);
-        jsonObject.put("description",description);
-
+        jsonObject.put("id", id);
+        jsonObject.put("filmId", filmId);
+        jsonObject.put("filmName", id);
+        jsonObject.put("year", year);
+        jsonObject.put("rating", rating);
+        jsonObject.put("description", description);
 
         return jsonObject;
-
-
     }
 
 }
