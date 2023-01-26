@@ -37,7 +37,7 @@ public class KinopoiskApiUnofficialClient {
                 .queryParam("yearFrom", filmParametersDto.getYearFrom())
                 .queryParam("yearTo", filmParametersDto.getYearTo())
                 .queryParam("keyword", filmParametersDto.getKeyword())
-                //.queryParam("page", filmParametersDto.getPage())
+                .queryParam("page", filmParametersDto.getPage())
                 .build().toUriString();
         return uriComponentsBuilder;
     }

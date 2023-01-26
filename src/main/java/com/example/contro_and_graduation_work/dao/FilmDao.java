@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FilmDao extends JpaRepository<Film, Long>, JpaSpecificationExecutor<Film> {
 boolean existsByFilmId(Integer filmId);
-
-
 }

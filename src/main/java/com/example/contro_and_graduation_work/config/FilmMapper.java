@@ -16,4 +16,6 @@ public interface FilmMapper {
     @Mapping(target = "rating", source = "ratingKinopoisk")
     @Mapping(target = "filmId", source = "kinopoiskId")
     Film toFilm(FilmDto filmDto);
+
+
 }

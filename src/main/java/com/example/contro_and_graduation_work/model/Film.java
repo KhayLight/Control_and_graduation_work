@@ -1,6 +1,8 @@
 package com.example.contro_and_graduation_work.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,16 +45,10 @@ public class Film implements Serializable {
 
     }
 
-
-    public JSONObject jsonObject() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", id);
-        jsonObject.put("filmId", filmId);
-        jsonObject.put("filmName", id);
-        jsonObject.put("year", year);
-        jsonObject.put("rating", rating);
-        jsonObject.put("description", description);
-
+    public JSONObject jsonObject() throws JsonProcessingException {
+        Film film = new Film(id, filmId, filmName, year, rating, description);
+        ObjectMapper mapper = new ObjectMapper();
+        JSONObject jsonObject = new JSONObject(mapper.writeValueAsString(film));
         return jsonObject;
     }
 
